@@ -23,7 +23,7 @@ Or read the image from the clipboard, which returns a `NativeImage`:
 ```javascript
 const { app, clipboard, Tray } = require('electron')
 
-app.on('ready', async () => {
+app.whenReady().then(async () => {
   const image = await clipboard.readImage()
   const appIcon = new Tray(image)
   console.log(appIcon)
